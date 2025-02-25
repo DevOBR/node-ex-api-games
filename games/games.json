@@ -1,0 +1,72 @@
+[
+  {
+    "id": "1e7b1d3e-8f3a-4a6b-9c2d-1a2b3c4d5e6f",
+    "name": "Final Fantasy VII",
+    "img": "",
+    "year": 1997,
+    "rate": 9.2
+  },
+  {
+    "id": "2a8c2d4f-9b5e-4c7d-8e3f-2b3c4d5e6f7g",
+    "name": "Gran Turismo",
+    "img": "",
+    "year": 1997,
+    "rate": 9.5
+  },
+  {
+    "id": "3b9d3e5f-0c6f-5d8e-9f4g-3c4d5e6f7g8h",
+    "name": "Tekken 3",
+    "img": "",
+    "year": 1998,
+    "rate": 9.1
+  },
+  {
+    "id": "4c0e4f6g-1d7g-6e9f-0h5i-4d5e6f7g8h9i",
+    "name": "Metal Gear Solid",
+    "img": "",
+    "year": 1998,
+    "rate": 9.8
+  },
+  {
+    "id": "5d1f5g7h-2e8h-7f0g-1i6j-5e6f7g8h9i0j",
+    "name": "Resident Evil",
+    "img": "",
+    "year": 1996,
+    "rate": 9.0
+  },
+  {
+    "id": "6e2g6h8i-3f9i-8g1h-2j7k-6f7g8h9i0j1k",
+    "name": "Tomb Raider",
+    "img": "",
+    "year": 1996,
+    "rate": 8.9
+  },
+  {
+    "id": "7f3h7i9j-4g0j-9h2i-3k8l-7g8h9i0j1k2l",
+    "name": "Crash Bandicoot",
+    "img": "",
+    "year": 1996,
+    "rate": 8.8
+  },
+  {
+    "id": "8g4i8j0k-5h1k-0i3j-4l9m-8h9i0j1k2l3m",
+    "name": "Spyro the Dragon",
+    "img": "",
+    "year": 1998,
+    "rate": 8.7
+  },
+  {
+    "id": "9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n",
+    "name": "Silent Hill",
+    "img": "",
+    "year": 1999,
+    "rate": 9.3
+  },
+  {
+    "id": "0i6k0l2m-7j3m-2k5l-6n1o-0j1k2l3m4n5o",
+    "name": "God of War",
+    "img": "",
+    "year": 2005,
+    "rate": 9.6
+  }
+]
