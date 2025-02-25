@@ -1,3 +1,4 @@
+const crypto = require('node:crypto')
 const express = require('express')
 const app = express()
 const cors = require('cors')
@@ -20,6 +21,24 @@ app.get('/games/:id', (req, res) => {
   if (!game) res.status(404).json({ message: 'Game not found' })
 
   res.json(game)
+})
+
+app.post('/games', (req, res) => {
+  if (!req.body) res.status(400).json({ message: 'Body is required' })
+  const { name, img, year, rate } = req.body
+  const newGame = {
+    name,
+    img,
+    year,
+    rate
+  }
+
+  games.push({
+    id: crypto.randomUUID(),
+    newGame
+  })
+
+  res.status(201).json(newGame)
 })
 
 app.delete('/games/:id', (req, res) => {
