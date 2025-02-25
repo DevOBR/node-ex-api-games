@@ -6,7 +6,7 @@ GET http://localhost:53400/games HTTP/1.1
 
 GET http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n HTTP/1.1
 
-### Create new Game
+### Create new Game 1
 POST http://localhost:53400/games HTTP/1.1
 Content-Type: application/json
 
@@ -17,5 +17,28 @@ Content-Type: application/json
     "rate": 5
 }
 
+### Create new Game 2
+POST http://localhost:53400/games HTTP/1.1
+Content-Type: application/json
+
+{
+    "name": "Metal Slug",
+    "img": "https://upload.wikimedia.org/wikipedia/en/a/ab/MetalSlugLogo.png",
+    "year": 1996,
+    "rate": 5
+}
+
+### Update Game By Id
+PUT http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n HTTP/1.1
+Content-Type: application/json
+
+{
+  "id": "9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n",
+  "name": "Silent Hill",
+  "img": "https://upload.wikimedia.org/wikipedia/en/9/96/Silent_Hill_video_game_cover.png",
+  "year": 1999,
+  "rate": 9.3
+}
+
 ### Delete Game By Id
-DELETE http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n HTTP/1.1
+DELETE http://localhost:53400/games/0i6k0l2m-7j3m-2k5l-6n1o-0j1k2l3m4n5o HTTP/1.1
