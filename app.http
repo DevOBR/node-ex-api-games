@@ -1,3 +1,10 @@
 ### Get List Games
 
 GET http://localhost:53400/games HTTP/1.1
+
+### Get Game By Id
+
+GET http://localhost:53400/games/1e7b1d3e-8f3a-4a6b-9c2d-1a2b3c4d5e6f HTTP/1.1
+
+### Delete Game By Id
+DELETE http://localhost:53400/games/1e7b1d3e-8f3a-4a6b-9c2d-1a2b3c4d5e6f HTTP/1.1
