@@ -2,8 +2,8 @@ const crypto = require('node:crypto')
 const express = require('express')
 const app = express()
 // const cors = require('cors')
-// const z = require('zod')
 const games = require('./games/games.json')
+const { validateNewGame } = require('./validations/games')
 
 const PORT = process.env.PORT ?? 53400
 
@@ -28,39 +28,45 @@ app.get('/games/:id', (req, res) => {
 })
 
 app.post('/games', (req, res) => {
-  const { name, img, year, rate } = req.body
+  const result = validateNewGame(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ message: result.error.errors })
+  }
   const exist = games.some((game) => {
-    return game.name.toLowerCase() === name.toLowerCase()
+    return game.name.toLowerCase() === result.data.name.toLowerCase()
   })
 
   if (exist) return res.status(500).json({ message: 'Game already exists' })
-  if (!req.body) return res.status(400).json({ message: 'Body is required' })
+
   const newGame = {
-    name,
-    img,
-    year,
-    rate
+    id: crypto.randomUUID(),
+    ...result.data
   }
 
-  games.push({
-    id: crypto.randomUUID(),
-    ...newGame
-  })
+  games.push(newGame)
 
   return res.status(201).json(newGame)
 })
 
 app.put('/games/:id', (req, res) => {
   const { id } = req.params
-  const { name, img, year, rate } = req.body
+
   const gameIndex = games.findIndex((game) => game.id === id)
+
   if (gameIndex === -1) {
     return res.status(404).json({ message: 'Game not found' })
   }
 
+  const result = validateNewGame(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ message: result.error.errors })
+  }
+
   games[gameIndex] = {
     ...games[gameIndex],
-    ...{ name, img, year, rate }
+    ...result.data
   }
 
   return res.json(games[gameIndex])
