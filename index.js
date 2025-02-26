@@ -3,7 +3,7 @@ const express = require('express')
 const app = express()
 // const cors = require('cors')
 const games = require('./games/games.json')
-const { validateNewGame } = require('./validations/games')
+const { validateNewGame, validatePartialGame } = require('./validations/games')
 
 const PORT = process.env.PORT ?? 53400
 
@@ -59,6 +59,29 @@ app.put('/games/:id', (req, res) => {
   }
 
   const result = validateNewGame(req.body)
+
+  if (!result.success) {
+    return res.status(400).json({ message: result.error.errors })
+  }
+
+  games[gameIndex] = {
+    ...games[gameIndex],
+    ...result.data
+  }
+
+  return res.json(games[gameIndex])
+})
+
+app.patch('/games/:id', (req, res) => {
+  const { id } = req.params
+
+  const gameIndex = games.findIndex((game) => game.id === id)
+
+  if (gameIndex === -1) {
+    return res.status(404).json({ message: 'Game not found' })
+  }
+
+  const result = validatePartialGame(req.body)
 
   if (!result.success) {
     return res.status(400).json({ message: result.error.errors })
