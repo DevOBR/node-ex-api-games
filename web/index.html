@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      ul {
+        list-style: none;
+        text-align: center;
+      }
+    </style>
+    <script type="module">
+      let htmlElements = `
+            <button>Add Game</button>
+          `
+      fetch('http://localhost:53400/games')
+        .then((response) => response.json())
+        .then((data) => {
+          htmlElements += data.games.reduce((acc, game) => {
+            return (
+              acc +
+              `
+              <ul data-id="${game.id}">
+                <img src="${game.img}" alt="image">
+                <li>${game.name}</li>
+                <li>${game.year}</li>
+                <li>${game.rate}</li>
+              </ul>
+            `
+            )
+          }, '')
+
+          const main = document.querySelector('main')
+          main.innerHTML = htmlElements
+
+          const button = document.querySelector('button')
+
+          if (button) {
+            button.addEventListener('click', () => {
+              fetch('http://localhost:53400/games', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  name: 'Pepsiman',
+                  img: 'https://upload.wikimedia.org/wikipedia/en/4/49/Pepsiman_%28PS1%29_cover_art.jpg',
+                  year: 1999,
+                  rate: 5
+                })
+              }).then((response) => {
+                if (response.ok) {
+                  location.reload()
+                }
+              })
+
+              fetch('http://localhost:53400/games', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                  name: 'Metal Slug',
+                  img: 'https://upload.wikimedia.org/wikipedia/en/a/ab/MetalSlugLogo.png',
+                  year: 1996,
+                  rate: 5
+                })
+              }).then((response) => {
+                if (response.ok) {
+                  location.reload()
+                }
+              })
+            })
+          }
+        })
+        .catch((error) => {
+          console.error(error)
+        })
+    </script>
+  </head>
+  <body>
+    <main></main>
+  </body>
+</html>

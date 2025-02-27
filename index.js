@@ -1,18 +1,19 @@
 const crypto = require('node:crypto')
 const express = require('express')
 const app = express()
-// const cors = require('cors')
 const games = require('./games/games.json')
 const { validateNewGame, validatePartialGame } = require('./validations/games')
+const cors = require('cors')
 
 const PORT = process.env.PORT ?? 53400
 
 app.disable('x-powered-by')
 
-// Middleware
-// app.use(cors())
+// Middlewares
+app.use(cors())
 app.use(express.json())
 
+// API Methods
 app.get('/games', (req, res) => {
   return res.json({ games, totalCount: games.length })
 })
