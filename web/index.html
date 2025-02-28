@@ -17,7 +17,8 @@
       fetch('http://localhost:53400/games')
         .then((response) => response.json())
         .then((data) => {
-          htmlElements += data.games.reduce((acc, game) => {
+          const sortedData = data.games.sort((a, b) => (a.img < b.img ? 1 : -1))
+          htmlElements += sortedData.reduce((acc, game) => {
             return (
               acc +
               `
@@ -26,6 +27,7 @@
                 <li>${game.name}</li>
                 <li>${game.year}</li>
                 <li>${game.rate}</li>
+                <li><button id="btn-delete">Delete<button></li>
               </ul>
             `
             )
@@ -71,6 +73,27 @@
                   location.reload()
                 }
               })
+            })
+          }
+
+          const deleteButton = document.querySelector('#btn-delete')
+          if (deleteButton) {
+            deleteButton.addEventListener('click', () => {
+              const id = deleteButton.parentElement.parentElement.dataset.id
+              fetch(`http://localhost:53400/games/${id}`, {
+                method: 'DELETE',
+                headers: {
+                  'Content-Type': 'application/json'
+                }
+              })
+                .then((response) => {
+                  if (response.ok) {
+                    location.reload()
+                  }
+                })
+                .catch((error) => {
+                  console.error(error)
+                })
             })
           }
         })
