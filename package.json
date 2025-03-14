@@ -18,7 +18,7 @@
     "url": "https://github.com/DevOBR/node-ex-api-games/issues"
   },
   "homepage": "https://github.com/DevOBR/node-ex-api-games#readme",
-  "description": "",
+  "description": "Priject with commonJS classic",
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.21.2",
