@@ -1,46 +1,54 @@
 ### Get List Games
 
-GET http://localhost:53400/games HTTP/1.1
+GET http://localhost:53400/games
+
+### Get List Games using query parameters
+
+GET http://localhost:53400/games?category=Platformer
 
 ### Get Game By Id
 
-GET http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n HTTP/1.1
+GET http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n
 
-### Create new Game 1
-POST http://localhost:53400/games HTTP/1.1
+### Create Pepsiman
+POST http://localhost:53400/games
 Content-Type: application/json
 
 {
     "name": "Pepsiman",
     "img": "https://upload.wikimedia.org/wikipedia/en/4/49/Pepsiman_%28PS1%29_cover_art.jpg",
     "year": 1999,
-    "rate": 5
+    "rate": 5,
+    "category": "Runner"
 }
 
-### Create new Game 2
-POST http://localhost:53400/games HTTP/1.1
+### Create Metal Slug
+POST http://localhost:53400/games
 Content-Type: application/json
 
 {
     "name": "Metal Slug",
     "img": "https://upload.wikimedia.org/wikipedia/en/a/ab/MetalSlugLogo.png",
     "year": 1996,
-    "rate": 5
+    "rate": 5,
+    "category": "Shooter"
 }
 
-### Update Game By Id PUT
-PUT http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n HTTP/1.1
+### Update Silent Hill Id PUT
+PUT http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n
 Content-Type: application/json
 
 {
   "name": "Silent Hill",
   "img": "https://upload.wikimedia.org/wikipedia/en/9/96/Silent_Hill_video_game_cover.png",
   "year": 1999,
-  "rate": 9.3
+  "rate": 9.3,
+  "category": "Survival Horror"
+
 }
 
 ### Update Game By Id PATCH
-PATCH http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n HTTP/1.1
+PATCH http://localhost:53400/games/9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n
 Content-Type: application/json
 
 {
@@ -48,5 +56,5 @@ Content-Type: application/json
   "img": "https://www.silenthillmemories.net/sh1/versions/pics/silent_hill_ps1_us_greatest_hits_01_front_cover.jpg"
 }
 
-### Delete Game By Id
-DELETE http://localhost:53400/games/0i6k0l2m-7j3m-2k5l-6n1o-0j1k2l3m4n5o HTTP/1.1
+### Delete Game By Id God of War
+DELETE http://localhost:53400/games/0i6k0l2m-7j3m-2k5l-6n1o-0j1k2l3m4n5o

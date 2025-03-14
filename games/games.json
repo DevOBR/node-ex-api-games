@@ -2,71 +2,81 @@
   {
     "id": "1e7b1d3e-8f3a-4a6b-9c2d-1a2b3c4d5e6f",
     "name": "Final Fantasy VII",
-    "img": "",
+    "img": "https://www.pushsquare.com/news/2019/06/e3_2019_final_fantasy_vii_remake_character_artwork_shows_off_new_designs_in_detail",
     "year": 1997,
-    "rate": 9.2
+    "rate": 9.2,
+    "category": "RPG"
   },
   {
     "id": "2a8c2d4f-9b5e-4c7d-8e3f-2b3c4d5e6f7g",
     "name": "Gran Turismo",
-    "img": "",
+    "img": "https://dinahqbeverley.pages.dev/rtkxcvs-gran-turismo-release-date-2024-bkbhscl/",
     "year": 1997,
-    "rate": 9.5
+    "rate": 9.5,
+    "category": "Racing"
   },
   {
     "id": "3b9d3e5f-0c6f-5d8e-9f4g-3c4d5e6f7g8h",
     "name": "Tekken 3",
-    "img": "",
+    "img": "https://www.vg247.com/games/tekken-3",
     "year": 1998,
-    "rate": 9.1
+    "rate": 9.1,
+    "category": "Fighting"
   },
   {
     "id": "4c0e4f6g-1d7g-6e9f-0h5i-4d5e6f7g8h9i",
     "name": "Metal Gear Solid",
-    "img": "",
+    "img": "https://4kwallpapers.com/games/metal-gear-solid-11612.html",
     "year": 1998,
-    "rate": 9.8
+    "rate": 9.8,
+    "category": "Stealth"
   },
   {
     "id": "5d1f5g7h-2e8h-7f0g-1i6j-5e6f7g8h9i0j",
     "name": "Resident Evil",
-    "img": "",
+    "img": "https://www.playstation.com/en-us/games/resident-evil-4-remake/?smcid=ma",
     "year": 1996,
-    "rate": 9.0
+    "rate": 9.0,
+    "category": "Survival Horror"
   },
   {
     "id": "6e2g6h8i-3f9i-8g1h-2j7k-6f7g8h9i0j1k",
     "name": "Tomb Raider",
-    "img": "",
+    "img": "https://teaser-trailer.com/movie/tomb-raider/",
     "year": 1996,
-    "rate": 8.9
+    "rate": 8.9,
+    "category": "Action-Adventure"
   },
   {
     "id": "7f3h7i9j-4g0j-9h2i-3k8l-7g8h9i0j1k2l",
     "name": "Crash Bandicoot",
-    "img": "",
+    "img": "https://wallpapers.com/crash-bandicoot",
     "year": 1996,
-    "rate": 8.8
+    "rate": 8.8,
+    "category": "Platformer"
   },
   {
     "id": "8g4i8j0k-5h1k-0i3j-4l9m-8h9i0j1k2l3m",
     "name": "Spyro the Dragon",
-    "img": "",
+    "img": "https://gamesdb.launchbox-app.com/games/images/4730",
     "year": 1998,
-    "rate": 8.7
+    "rate": 8.7,
+    "category": "Platformer"
   },
   {
     "id": "9h5j9k1l-6i2l-1j4k-5m0n-9i0j1k2l3m4n",
     "name": "Silent Hill",
-    "img": "",
+    "img": "https://wall.alphacoders.com/big.php?i=64890",
     "year": 1999,
-    "rate": 9.3
+    "rate": 9.3,
+    "category": "Survival Horror"
   },
   {
     "id": "0i6k0l2m-7j3m-2k5l-6n1o-0j1k2l3m4n5o",
     "name": "God of War",
-    "img": "",
+    "img": "https://hdqwalls.com/kratos-throne-god-of-war-wallpaper",
     "year": 2005,
-    "rate": 9.6
+    "rate": 9.6,
+    "category": "Action-Adventure"
   }
 ]

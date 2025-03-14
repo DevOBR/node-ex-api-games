@@ -20,7 +20,12 @@ function validateGame() {
       .int()
       .min(1900)
       .max(2025),
-    rate: z.number().min(0).max(10).default(5)
+    rate: z.number().min(0).max(10).default(5),
+    category: z
+      .string({
+        invalid_type_error: 'Category must be a string'
+      })
+      .optional()
   })
 
   return game
