@@ -2,6 +2,7 @@
   "name": "ex-api-games",
   "version": "1.0.0",
   "main": "index.js",
+  "type": "module",
   "scripts": {
     "dev": "node --watch index.js",
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -18,7 +19,7 @@
     "url": "https://github.com/DevOBR/node-ex-api-games/issues"
   },
   "homepage": "https://github.com/DevOBR/node-ex-api-games#readme",
-  "description": "Priject with commonJS classic",
+  "description": "Priject with ES Modules modern and recomended import/export",
   "dependencies": {
     "cors": "2.8.5",
     "express": "4.21.2",

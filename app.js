@@ -1,10 +1,17 @@
-const crypto = require('node:crypto')
-const express = require('express')
-const app = express()
-const games = require('./games/games.json')
-const { validateNewGame, validatePartialGame } = require('./validations/games')
-const cors = require('cors')
+import { randomUUID } from 'node:crypto'
+import express, { json } from 'express'
+import cors from 'cors'
+import { validateNewGame, validatePartialGame } from './validations/games.js'
+import { readJSON } from './utils.js'
+// import games from './games/games.json'
 
+// import fs from 'node:fs'
+// const games = JSON.parse(fs.readFileSync('./games/games.json', 'utf-8'))
+
+// Native way to read JSON in ESModules
+const games = readJSON('./games/games.json')
+
+const app = express()
 const PORT = process.env.PORT ?? 53400
 
 app.disable('x-powered-by')
@@ -21,16 +28,16 @@ const corsOptions = {
   }
 }
 app.use(cors(corsOptions))
-app.use(express.json())
+app.use(json())
 
 // API Methods
 app.get('/games', (req, res) => {
-  return res.json({ games, totalCount: games.length })
+  return res.json({ games, totalCount: games?.length })
 })
 
 app.get('/games/:id', (req, res) => {
   const { id } = req.params
-  const gameIndex = games.findIndex((game) => game.id === id)
+  const gameIndex = games?.findIndex((game) => game.id === id)
   if (gameIndex === -1) {
     return res.status(404).json({ message: 'Game not found' })
   }
@@ -44,18 +51,18 @@ app.post('/games', (req, res) => {
   if (!result.success) {
     return res.status(400).json({ message: result.error.errors })
   }
-  const exist = games.some((game) => {
+  const exist = games?.some((game) => {
     return game.name.toLowerCase() === result.data.name.toLowerCase()
   })
 
   if (exist) return res.status(500).json({ message: 'Game already exists' })
 
   const newGame = {
-    id: crypto.randomUUID(),
+    id: randomUUID(),
     ...result.data
   }
 
-  games.push(newGame)
+  games?.push(newGame)
 
   return res.status(201).json(newGame)
 })
@@ -63,7 +70,7 @@ app.post('/games', (req, res) => {
 app.put('/games/:id', (req, res) => {
   const { id } = req.params
 
-  const gameIndex = games.findIndex((game) => game.id === id)
+  const gameIndex = games?.findIndex((game) => game.id === id)
 
   if (gameIndex === -1) {
     return res.status(404).json({ message: 'Game not found' })
@@ -108,13 +115,13 @@ app.patch('/games/:id', (req, res) => {
 
 app.delete('/games/:id', (req, res) => {
   const { id } = req.params
-  const gameIndex = games.findIndex((game) => game.id === id)
+  const gameIndex = games?.findIndex((game) => game.id === id)
   if (gameIndex === -1) {
     return res.status(404).json({ message: 'Game not found' })
   }
 
-  games.splice(gameIndex, 1)
-  return res.json({ games, totalCount: games.length })
+  games?.splice(gameIndex, 1)
+  return res.json({ games, totalCount: games?.length })
 })
 
 app.listen(PORT, () => {

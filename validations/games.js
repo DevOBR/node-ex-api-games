@@ -1,4 +1,4 @@
-const z = require('zod')
+import z from 'zod'
 
 function validateGame() {
   const game = z.object({
@@ -26,15 +26,10 @@ function validateGame() {
   return game
 }
 
-function validateNewGame(input) {
+export function validateNewGame(input) {
   return validateGame().safeParse(input)
 }
 
-function validatePartialGame(input) {
+export function validatePartialGame(input) {
   return validateGame().partial().safeParse(input)
-}
-
-module.exports = {
-  validateNewGame,
-  validatePartialGame
 }
