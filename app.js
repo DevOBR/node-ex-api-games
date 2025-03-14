@@ -10,7 +10,17 @@ const PORT = process.env.PORT ?? 53400
 app.disable('x-powered-by')
 
 // Middlewares
-app.use(cors())
+const allowedOrigins = ['http://localhost:8080'] // ['https://example.com', 'https://anotherdomain.com'];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (allowedOrigins.indexOf(origin !== -1)) {
+      callback(null, allowedOrigins)
+    } else {
+      callback(new Error('Error with my CORS'), null) // error, and options
+    }
+  }
+}
+app.use(cors(corsOptions))
 app.use(express.json())
 
 // API Methods
